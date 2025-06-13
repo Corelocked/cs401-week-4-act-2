@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('status')->comment('(D - Draft, P - Published, I - Inactive)');
             $table->string('featured_image_url')->comment('URL of the featured image');
             $table->integer('views_count')->comment('view count')->default(0);
+            $table->timestamps();
         });
     }
 

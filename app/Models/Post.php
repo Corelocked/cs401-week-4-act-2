@@ -3,12 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
-    public function user()
+    use HasFactory;
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'publication_date',
+        'status',
+        'featured_image_url',
+        'views_count'
+    ];
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
